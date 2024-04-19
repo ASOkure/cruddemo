@@ -1,7 +1,7 @@
 package com.aso.cruddemopro.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 @Table(name="employee")
@@ -9,7 +9,7 @@ public class Employee {
     // define fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Id")
+    @Column(name="id")
     private  int id;
 
   @Column(name="first_name")
