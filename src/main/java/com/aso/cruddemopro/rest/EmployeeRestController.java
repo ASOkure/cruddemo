@@ -3,6 +3,7 @@ package com.aso.cruddemopro.rest;
 
 import com.aso.cruddemopro.dao.EmployeeDAO;
 import com.aso.cruddemopro.entity.Employee;
+import com.aso.cruddemopro.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +14,13 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
 
+    private EmployeeService employeeService;
     // quick and dirty: inject employee dao ( use constructor injection)
 
-    public  EmployeeRestController( EmployeeDAO theEmployeeDAO){
+    public  EmployeeRestController( EmployeeService theEmployeeSerive){
 
-        employeeDAO = theEmployeeDAO;
+       employeeService = theEmployeeSerive;
     }
 
     // expose " /employees" and return a list of employees
@@ -28,6 +29,6 @@ public class EmployeeRestController {
 
     public List<Employee> findAll(){
 
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 }
