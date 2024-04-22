@@ -1,6 +1,5 @@
 package com.aso.cruddemopro.service;
 
-import com.aso.cruddemopro.dao.EmployeeDAO;
 import com.aso.cruddemopro.entity.Employee;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
