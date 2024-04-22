@@ -6,6 +6,7 @@ import com.aso.cruddemopro.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -31,9 +32,9 @@ public class EmployeeRestController {
 
     @GetMapping("/employees/{employeeId}")
 
-    public Employee getEmployee(@PathVariable  int employeeId){
+    public Optional<Employee> getEmployee(@PathVariable  int employeeId){
 
-        Employee theEmployee =  employeeService.findById(employeeId);
+        Optional<Employee> theEmployee =  employeeService.findById(employeeId);
 
         if(theEmployee == null) {
 
@@ -74,7 +75,7 @@ public class EmployeeRestController {
 
     public String deleteEmployee(@PathVariable int employeeId){
 
-        Employee temEmployee = employeeService.findById(employeeId);
+        Optional<Employee> temEmployee = employeeService.findById(employeeId);
 
         if (temEmployee == null) {
 
